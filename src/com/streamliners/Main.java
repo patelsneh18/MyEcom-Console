@@ -1,11 +1,10 @@
 package com.streamliners;
 
+import com.streamliners.models.Cart;
 import com.streamliners.models.Product;
+import com.streamliners.models.ProductType;
 import com.streamliners.models.Variant;
-import com.streamliners.models.VariantsBasedProduct;
-import com.streamliners.models.WeightBasedProduct;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,20 +12,36 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        //Creating a list of Variants for Our Variant Based Product
-        List<Variant> variants= new ArrayList<>(
-                Arrays.asList(new Variant("500g",90), new Variant("1kg",180))
-        );
+        // Creating WBP
+        Product kiwi = new Product("Kiwi","",1,50);
+        Product banana = new Product("Banana","",1,30);
 
-        // Creating an Object kiwi of class VariantBasedProduct
-        VariantsBasedProduct kiwi = new VariantsBasedProduct("Kiwi","",variants);
+        // ArrayList of Variants of Our Product
+        ArrayList<Variant> alm = new ArrayList<>(Arrays.asList(new Variant("500g",500), new Variant("1kg",900)));
+        // Creating VBP
+        Product almond = new Product("Almond","", alm);
 
-        System.out.println(kiwi);
+        Cart cart = new Cart();
+        cart.add(kiwi,5);
+        cart.add(banana,3);
+        cart.add(almond,alm.get(0));
+        cart.add(almond,alm.get(0));
 
-        // Creating an Object kiwi of class WeightBasedProduct
-        WeightBasedProduct rice = new WeightBasedProduct("Rice","",1,60);
+        System.out.println(cart);
+        System.out.println();
 
-        System.out.println(rice);
+        cart.removeAllVBP(almond);
+        System.out.println(cart);
+        System.out.println();
+
+        cart.add(almond,alm.get(0));
+        cart.add(almond,alm.get(0));
+        cart.removeWBP(kiwi);
+        System.out.println(cart);
+        System.out.println();
+
+        cart.decrementVBP(almond,alm.get(0));
+        System.out.println(cart);
 
     }
 }
