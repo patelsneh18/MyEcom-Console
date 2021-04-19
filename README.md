@@ -22,4 +22,9 @@
 > 
 > [Variant.java](https://github.com/patelsneh18/MyEcom/blob/Assignment4.2/src/com/streamliners/models/Variant.java)
 
+## [Assignment4.2.2](https://github.com/patelsneh18/MyEcom/tree/Assignment4.2.2)
+![alt text](https://github.com/patelsneh18/storage/blob/main/MyEcom/1.%20Menu.png)
+
+
+
 
